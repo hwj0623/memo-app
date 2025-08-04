@@ -11,6 +11,7 @@ export const useMemos = () => {
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [viewingMemo, setViewingMemo] = useState<Memo | null>(null)
 
   // 메모 로드
   useEffect(() => {
@@ -64,7 +65,11 @@ export const useMemos = () => {
   const deleteMemo = useCallback((id: string): void => {
     localStorageUtils.deleteMemo(id)
     setMemos(prev => prev.filter(memo => memo.id !== id))
-  }, [])
+    // 현재 보고 있는 메모가 삭제되면 뷰어 닫기
+    if (viewingMemo && viewingMemo.id === id) {
+      setViewingMemo(null)
+    }
+  }, [viewingMemo])
 
   // 메모 검색
   const searchMemos = useCallback((query: string): void => {
@@ -107,12 +112,22 @@ export const useMemos = () => {
     return filtered
   }, [memos, selectedCategory, searchQuery])
 
+  // 메모 뷰어 관리
+  const selectMemoToView = useCallback((memo: Memo): void => {
+    setViewingMemo(memo)
+  }, [])
+
+  const closeMemoViewer = useCallback((): void => {
+    setViewingMemo(null)
+  }, [])
+
   // 모든 메모 삭제
   const clearAllMemos = useCallback((): void => {
     localStorageUtils.clearMemos()
     setMemos([])
     setSearchQuery('')
     setSelectedCategory('all')
+    setViewingMemo(null)
   }, [])
 
   // 통계 정보
@@ -141,6 +156,7 @@ export const useMemos = () => {
     searchQuery,
     selectedCategory,
     stats,
+    viewingMemo,
 
     // 메모 CRUD
     createMemo,
@@ -151,6 +167,10 @@ export const useMemos = () => {
     // 필터링 & 검색
     searchMemos,
     filterByCategory,
+
+    // 메모 뷰어
+    selectMemoToView,
+    closeMemoViewer,
 
     // 유틸리티
     clearAllMemos,
