@@ -5,10 +5,10 @@
       "args": [
         "-y",
         "@supabase/mcp-server-supabase@0.4.5",
-        "--project-ref=<project-ref>"
+        "--project-ref=acdlwvbhbbxgmcvhohtm"
       ],
       "env": {
-        "SUPABASE_ACCESS_TOKEN": "<personal-access-token>"
+        "SUPABASE_ACCESS_TOKEN": "sbp_394c250d4188f312a87d11fc5f3e4a78cc7d641f"
       }
     },
     "playwright-mcp": {
