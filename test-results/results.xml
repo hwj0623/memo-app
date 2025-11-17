@@ -1,0 +1,20 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="59.429623">
+<testsuite name="e2e\memo-creation.spec.ts" timestamp="2025-08-04T07:04:00.299Z" hostname="chromium" tests="2" failures="0" skipped="0" time="9.8" errors="0">
+<testcase name="메모 작성 테스트 › MEMO-001: 새 메모 작성 (성공)" classname="e2e\memo-creation.spec.ts" time="4.662">
+</testcase>
+<testcase name="메모 작성 테스트 › MEMO-002: 새 메모 작성 (필수 값 누락)" classname="e2e\memo-creation.spec.ts" time="5.138">
+</testcase>
+</testsuite>
+<testsuite name="e2e\memo-creation.spec.ts" timestamp="2025-08-04T07:04:00.299Z" hostname="firefox" tests="2" failures="0" skipped="0" time="33.432" errors="0">
+<testcase name="메모 작성 테스트 › MEMO-001: 새 메모 작성 (성공)" classname="e2e\memo-creation.spec.ts" time="17.391">
+</testcase>
+<testcase name="메모 작성 테스트 › MEMO-002: 새 메모 작성 (필수 값 누락)" classname="e2e\memo-creation.spec.ts" time="16.041">
+</testcase>
+</testsuite>
+<testsuite name="e2e\memo-creation.spec.ts" timestamp="2025-08-04T07:04:00.299Z" hostname="webkit" tests="2" failures="0" skipped="0" time="36.723" errors="0">
+<testcase name="메모 작성 테스트 › MEMO-001: 새 메모 작성 (성공)" classname="e2e\memo-creation.spec.ts" time="16.735">
+</testcase>
+<testcase name="메모 작성 테스트 › MEMO-002: 새 메모 작성 (필수 값 누락)" classname="e2e\memo-creation.spec.ts" time="19.988">
+</testcase>
+</testsuite>
+</testsuites>

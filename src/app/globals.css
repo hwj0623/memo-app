@@ -1,15 +1,10 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,4 +33,219 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Modal styles */
+.prose {
+  max-width: none;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+/* Scroll styles for modal */
+.max-h-\[90vh\]::-webkit-scrollbar {
+  width: 6px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Markdown Editor Styles */
+.w-md-editor {
+  background-color: #ffffff !important;
+}
+
+.w-md-editor-text-input, 
+.w-md-editor-text-area, 
+.w-md-editor-text {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.w-md-editor-preview {
+  background-color: #ffffff !important;
+  padding: 16px !important;
+}
+
+.w-md-editor-bar {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.w-md-editor-focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Markdown Preview Styles */
+.wmde-markdown {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  color: #374151;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wmde-markdown h1 { font-size: 1.875rem; }
+.wmde-markdown h2 { font-size: 1.5rem; }
+.wmde-markdown h3 { font-size: 1.25rem; }
+
+.wmde-markdown p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.wmde-markdown code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.wmde-markdown pre {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.wmde-markdown blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.wmde-markdown ul,
+.wmde-markdown ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.wmde-markdown ol {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.wmde-markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.wmde-markdown ol ol {
+  list-style-type: lower-alpha;
+}
+
+.wmde-markdown ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.wmde-markdown li {
+  margin-bottom: 0.25rem;
+  display: list-item;
+}
+
+.wmde-markdown li p {
+  margin: 0;
+}
+
+.wmde-markdown li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.wmde-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.wmde-markdown th,
+.wmde-markdown td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.wmde-markdown th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* 마크다운 뷰어 전용 스타일 */
+.markdown-viewer .wmde-markdown {
+  counter-reset: section;
+}
+
+.markdown-viewer .wmde-markdown ol {
+  counter-reset: item;
+}
+
+.markdown-viewer .wmde-markdown ol > li {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-viewer .wmde-markdown ol > li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* 중첩된 목록을 위한 리셋 */
+.markdown-viewer .wmde-markdown ol li ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 기본 브라우저 숫자 스타일 복원 */
+.markdown-viewer .wmde-markdown ol.restore-numbers {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+.markdown-viewer .wmde-markdown ol.restore-numbers > li:before {
+  content: none;
+}
+
+.markdown-viewer .wmde-markdown ol.restore-numbers > li {
+  display: list-item;
+}
+
+/* 외부 링크 스타일링 */
+.markdown-viewer .wmde-markdown a {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-decoration-color: rgba(59, 130, 246, 0.4);
+  transition: all 0.2s ease;
+}
+
+.markdown-viewer .wmde-markdown a:hover {
+  color: #1d4ed8;
+  text-decoration-color: #1d4ed8;
 }
